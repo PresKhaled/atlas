@@ -32,8 +32,8 @@ class _LandingState extends State<Landing> {
         Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-          Color.fromRGBO(193, 55, 111, 1),
-          Color.fromRGBO(241, 120, 100, 1)
+          Color.fromRGBO(193, 55, 111, 0.9),
+          Color.fromRGBO(241, 120, 100, 0.9)
         ], stops: [
           .2,
           1
@@ -65,10 +65,10 @@ class _LandingState extends State<Landing> {
                                   BorderRadius.all(Radius.circular(35.0)),
                               boxShadow: <BoxShadow>[
                                 BoxShadow(
-                                    offset: Offset(0, 20),
+                                    offset: Offset(0, 10),
                                     color: Color.fromRGBO(0, 0, 0, .2),
                                     spreadRadius: -1,
-                                    blurRadius: 15)
+                                    blurRadius: 10)
                               ]),
                           child: Image.asset("assets/images/logo.png",
                               width: 90, semanticLabel: "Atlas Logo"),
@@ -80,7 +80,7 @@ class _LandingState extends State<Landing> {
                                 color: Colors.white,
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
-                                letterSpacing: 10)),
+                                letterSpacing: 10),),
 
                         // Written app logo (Image)
                         Padding(
@@ -104,22 +104,35 @@ class _LandingState extends State<Landing> {
                         Container(
                             width: double.infinity,
                             margin: EdgeInsets.fromLTRB(25, .0, 25, 15),
-                            child: FlatButton(
-                                padding: EdgeInsets.only(top: 20, bottom: 20),
-                                onPressed: () => Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            new Signin()),
-                                    ModalRoute.withName("/Signin")),
-                                child: Text("Signin",
-                                    style: TextStyle(
-                                        color: _include.appPrimaryColor,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1.5)),
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(35)))),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    offset: Offset(0, 10),
+                                    color:Color.fromRGBO(0, 0, 0, .2),
+                                    spreadRadius: -1,
+                                    blurRadius: 10)
+                              ]
+                              ),
+                              child: FlatButton(
+                                  splashColor: Colors.transparent,  
+                                  highlightColor: Colors.transparent,
+                                  padding: EdgeInsets.only(top: 20, bottom: 20),
+                                  onPressed: () => Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              new Signin()),
+                                      ModalRoute.withName("/Signin")),
+                                  child: Text("Sign in",
+                                      style: TextStyle(
+                                          color: _include.appPrimaryColor,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1.5)),
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(35))),
+                            )),
 
                         // OR line
                         Padding(
