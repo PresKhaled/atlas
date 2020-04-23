@@ -1,4 +1,4 @@
-// Essential Flutter packages
+// Essential Flutter packages!
 import 'package:flutter/material.dart';
 
 // Internal resources
