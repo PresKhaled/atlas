@@ -19,7 +19,7 @@ class _LandingState extends State<Landing> {
   Color _orDividerColor = Color.fromRGBO(225, 122, 152, 1.0);
   double _orDividerHeightThickness = 2.0;
 
-  Include _include = new Include();
+  Include _inc = new Include();
 
   @override
   Widget build(BuildContext context) {
@@ -31,29 +31,27 @@ class _LandingState extends State<Landing> {
         // Gradient
         Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-          Color.fromRGBO(193, 55, 111, 0.9),
-          Color.fromRGBO(241, 120, 100, 0.9)
-        ], stops: [
-          .2,
-          1
-        ], begin: Alignment.bottomCenter, end: Alignment.topCenter))),
+                gradient: LinearGradient(
+                    colors: [_inc.appGradientPink, _inc.appGradientLightPink],
+                    stops: [.2, 1],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter))),
 
         // Landing background image
         Container(
-            width: _include.screenSize(context, window).width,
-            height: _include.screenSize(context, window).height,
+            width: _inc.screenSize(context, window).width,
+            height: _inc.screenSize(context, window).height,
             child: Image.asset("assets/images/landing_bg.png",
                 fit: BoxFit.fill, semanticLabel: "Landing background image")),
 
         // Header, Form
         Container(
-            padding: EdgeInsets.only(top: _include.statusBar(context)),
+            padding: EdgeInsets.only(top: _inc.statusBar(context)),
             child: Column(children: <Widget>[
               // Header
               Container(
-                  height: (_include.screenSize(context, window).height / 2) -
-                      (_include.statusBar(context) / 2),
+                  height: (_inc.screenSize(context, window).height / 2) -
+                      (_inc.statusBar(context) / 2),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -75,12 +73,14 @@ class _LandingState extends State<Landing> {
                         ),
 
                         // App name
-                        Text("atlas".toUpperCase(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 10),),
+                        Text(
+                          "atlas".toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 10),
+                        ),
 
                         // Written app logo (Image)
                         Padding(
@@ -94,8 +94,8 @@ class _LandingState extends State<Landing> {
 
               // Form
               Container(
-                  height: (_include.screenSize(context, window).height / 2) -
-                      (_include.statusBar(context) / 2),
+                  height: (_inc.screenSize(context, window).height / 2) -
+                      (_inc.statusBar(context) / 2),
                   child: Form(
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,17 +105,15 @@ class _LandingState extends State<Landing> {
                             width: double.infinity,
                             margin: EdgeInsets.fromLTRB(25, .0, 25, 15),
                             child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: <BoxShadow>[
+                              decoration: BoxDecoration(boxShadow: <BoxShadow>[
                                 BoxShadow(
                                     offset: Offset(0, 10),
-                                    color:Color.fromRGBO(0, 0, 0, .2),
+                                    color: Color.fromRGBO(0, 0, 0, .2),
                                     spreadRadius: -1,
                                     blurRadius: 10)
-                              ]
-                              ),
+                              ]),
                               child: FlatButton(
-                                  splashColor: Colors.transparent,  
+                                  splashColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   padding: EdgeInsets.only(top: 20, bottom: 20),
                                   onPressed: () => Navigator.pushAndRemoveUntil(
@@ -126,7 +124,7 @@ class _LandingState extends State<Landing> {
                                       ModalRoute.withName("/Signin")),
                                   child: Text("Sign in",
                                       style: TextStyle(
-                                          color: _include.appPrimaryColor,
+                                          color: _inc.appPrimaryColor,
                                           fontWeight: FontWeight.bold,
                                           letterSpacing: 1.5)),
                                   color: Colors.white,
