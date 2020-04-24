@@ -40,144 +40,160 @@ Drawer sideDrawer() {
     child: ListView(
       children: <Widget>[
         // Drawer Header => top container in the drawer
-        DrawerHeader(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                // The user profile and the check mark
-                Expanded(
-                  flex: 50,
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: <Widget>[
-                      //The user profile
-                      Container(
-                        decoration: BoxDecoration(boxShadow: <BoxShadow>[
-                          BoxShadow(
-                              offset: Offset(0, 5),
-                              color: Color.fromRGBO(0, 0, 0, .2),
-                              spreadRadius: 1,
-                              blurRadius: 10)
-                        ]),
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(25.0),
-                            child:
-                                Image.asset("assets/images/profile-photo.png")),
-                      ),
-
-                      //The check merk
-                      Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              colors: [Color(0xffFA566A), Color(0xffE3317B)],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                            boxShadow: <BoxShadow>[
+        Container(
+          height: 250,
+          child: DrawerHeader(
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  // The user profile and the check mark
+                  Expanded(
+                    flex: 50,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: <Widget>[
+                          //The user profile
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(boxShadow: <BoxShadow>[
                               BoxShadow(
                                   offset: Offset(0, 5),
-                                  color: Color(0x60FA566A),
-                                  spreadRadius: .5,
-                                  blurRadius: 10)
+                                  color: Color.fromRGBO(0, 0, 0, .15),
+                                  spreadRadius: .1,
+                                  blurRadius: 17)
                             ]),
-                        height: 20,
-                        width: 20,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Center(
-                              child: Image.asset(
-                                  'assets/images/drawer/check-mark.png')),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Spacer(
-                  flex: 5,
-                ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30.0),
+                                child: Image.asset(
+                                    "assets/images/profile-photo.png")),
+                          ),
 
-                //The user name
-                Expanded(
-                  flex: 13,
-                  child: Text(
-                    'Bernard Cerny',
-                    style: TextStyle(
-                      fontSize: 16,
-                      letterSpacing: 1,
-                      color: Color(0xff444444),
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w600,
+                          //The check merk
+                          Container(
+                            margin: EdgeInsets.only(bottom: 15),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xffFA566A),
+                                    Color(0xffE3317B)
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                      offset: Offset(0, 5),
+                                      color: Color(0x60FA566A),
+                                      spreadRadius: .5,
+                                      blurRadius: 10)
+                                ]),
+                            height: 25,
+                            width: 25,
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Center(
+                                  child: Image.asset(
+                                      'assets/images/drawer/check-mark.png')),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                  Spacer(
+                    flex: 2,
+                  ),
 
-                //The user sub text (job)
-                Expanded(
-                    flex: 15,
+                  //The user name
+                  Expanded(
+                    flex: 12,
                     child: Text(
-                      'Traveler',
+                      'Bernard Cerny',
                       style: TextStyle(
-                          fontSize: 12,
-                          letterSpacing: 3,
-                          color: Colors.grey[600],
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w600),
-                    )),
+                        fontSize: 18,
+                        letterSpacing: 1,
+                        color: Color(0xff444444),
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
 
-                //The edit button
-                Expanded(
-                  flex: 20,
-                  child: Container(
-                    width: 80,
-                    child: RaisedButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
-                      padding: EdgeInsets.all(0.0),
-                      child: Ink(
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Color(0xffFA566A), Color(0xffE3317B)],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
+                  //The user sub text (job)
+                  Expanded(
+                      flex: 15,
+                      child: Text(
+                        'Traveler',
+                        style: TextStyle(
+                            fontSize: 12,
+                            letterSpacing: 3,
+                            color: Colors.grey[600],
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w700),
+                      )),
+
+                  //The edit button
+                  Expanded(
+                    flex: 16,
+                    child: Container(
+                      width: 80,
+                      child: RaisedButton(
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)),
-                        child: Container(
+                        padding: EdgeInsets.all(0.0),
+                        child: Ink(
                           decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x60FA566A),
-                                blurRadius: 10.0,
-                                spreadRadius: 0.5,
-                                offset: Offset(1.0, 2.0),
-                              )
-                            ],
-                          ),
-                          constraints:
-                              BoxConstraints(maxWidth: 80.0, minHeight: 50.0),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Edit",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600),
+                              gradient: LinearGradient(
+                                colors: [Color(0xffFA566A), Color(0xffE3317B)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              borderRadius: BorderRadius.circular(30.0)),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0x60FA566A),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 0.5,
+                                  offset: Offset(1.0, 2.0),
+                                )
+                              ],
+                            ),
+                            constraints: BoxConstraints(
+                              maxWidth: 80.0,
+                              minHeight: 50.0,
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Edit",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Spacer(
+                    flex: 6,
+                  ),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xffEBEBEB),
             ),
           ),
-          decoration: BoxDecoration(
-            color: Color(0xffEBEBEB),
-          ),
         ),
-
+        SizedBox(height: 15),
         // The item
         sideDrawerItem(
             image: Image.asset('assets/images/drawer/discover.png'),
@@ -204,10 +220,10 @@ Drawer sideDrawer() {
             itemName: 'Subscription',
             onPressed: () {}),
         Divider(
-          height: 30,
+          height: 60,
           thickness: 2,
-          endIndent: 55,
-          indent: 55,
+          endIndent: 60,
+          indent: 60,
           color: Colors.grey[300],
         ),
         sideDrawerItem(
