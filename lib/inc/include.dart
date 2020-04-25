@@ -4,6 +4,12 @@ import 'dart:ui';
 // Essential Flutter packages
 import 'package:flutter/material.dart';
 
+// External resources (packages)
+import 'package:meta/meta.dart';
+
+// Internal resources
+//import 'drawer.dart' as aside_menu;
+
 // Useful methods, used globally
 class Include {
   // Properties
@@ -38,14 +44,14 @@ class Include {
         : Container();
   }
 
-  AppBar propperAppBar({String title, bool travel = false}) {
+  AppBar propperAppBar(
+      {@required String title, bool travel = false, @required BuildContext context}) {
     return AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: travel ? Colors.transparent : Colors.blueAccent,
         flexibleSpace: Container(
             decoration: BoxDecoration(
-
                 // AppBar gradient
                 gradient: travel
                     ? LinearGradient(
@@ -68,8 +74,11 @@ class Include {
         // Aside menu (Drawer)
         leading: Padding(
           padding: EdgeInsets.only(left: 5),
-          child: Image.asset("assets/images/sidelist.png",
-              scale: _appBarButtonsImagesScale, semanticLabel: "Aside menu"),
+          child: GestureDetector(
+            onTap: () => Scaffold.of(context).openDrawer(),
+            child: Image.asset("assets/images/sidelist.png",
+                scale: _appBarButtonsImagesScale, semanticLabel: "Aside menu"),
+          ),
         ),
 
         // Title
