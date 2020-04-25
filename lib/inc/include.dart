@@ -14,6 +14,7 @@ class Include {
 
   // Properties
   Color appPrimaryColor = Color.fromRGBO(233, 72, 109, 1);
+  Color votesStarsColor = Color(0xffcaa05f);
 
   // Methods
   Size screenSize(BuildContext context, Window window) {
@@ -24,12 +25,19 @@ class Include {
     return MediaQuery.of(context).padding.top;
   }
 
-  Divider buildDivider() {
+  Divider buildDivider(Color color) {
     return Divider(
       thickness: 2.0,
       height: 2.0,
-      color: Color.fromRGBO(225, 122, 152, 1.0),
+      color: color,
     );
+  }
+
+  Widget votesStarsOutofFive(Color color , double opacity){
+        return Icon(
+          Icons.star,
+          color: color.withOpacity(opacity),
+        );
   }
 
   // Gradient Color
@@ -53,6 +61,76 @@ class Include {
         blurRadius: 15)
   ];
 
+  // TEXT STYLE ///////////////////////////
+
+  // Text Colors
+  static Color darkGrayColor =  Color(0xff535353);
+  static Color grayColor =  Color(0xff888888);
+  static Color lightGrayColor =  Color(0xffd5d5d5);
+
+  // Font Family
+  static String appFontFamily = "Montserrat";
+
+  // Font Weight
+  static FontWeight w500 = FontWeight.w500;
+  static FontWeight w600 = FontWeight.w600;
+
+  TextStyle hotelNameStyle = TextStyle(
+    color: darkGrayColor,
+    fontSize: 25,
+    fontWeight: w600,
+    fontFamily: appFontFamily,
+  );
+
+  TextStyle priceAndCityNameStyle = TextStyle(
+    color: darkGrayColor,
+    fontSize: 18,
+    fontWeight: w500,
+    fontFamily: appFontFamily,
+  );
+
+  TextStyle aboutHotelStyle = TextStyle(
+    letterSpacing: 1.2,
+    color: darkGrayColor,
+    fontFamily: appFontFamily,
+    fontSize: 15,
+    fontWeight: w600,
+  );
+
+  TextStyle aboutHotelContentStyle =  TextStyle(
+    color: darkGrayColor,
+    fontFamily: appFontFamily,
+    fontSize: 14,
+    letterSpacing: 0.80,
+  );
+
+  TextStyle cityTemperatureStyle = TextStyle(
+    fontSize: 28,
+    fontWeight: w600,
+    color: darkGrayColor,
+  );
+
+  TextStyle  cityWeatherStyle = TextStyle(
+    color: grayColor,
+  );
+
+  TextStyle linearSeparatorStyle = TextStyle(
+    fontSize: 45,
+    color: lightGrayColor.withOpacity(0.40),
+  );
+
+  TextStyle hotelVotesRateStyle = TextStyle(
+    fontSize: 28,
+    fontFamily: appFontFamily,
+    fontWeight: w600,
+    color: darkGrayColor,
+  );
+
+  TextStyle totalVotesStyle = TextStyle(
+    color: grayColor,
+  );
+
+// End TEXT STYLE ///////////////////////////
 
 }
 
