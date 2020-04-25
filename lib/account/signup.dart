@@ -327,7 +327,7 @@ class _SignupState extends State<Signup> {
                         left: _include.screenSize(context, window).width / 10,
                         right: _include.screenSize(context, window).width / 10,
                       ),
-                      child: _include.buildDivider(),
+                      child: _include.buildDivider(Colors.grey),
                     ),
                   ),
 
