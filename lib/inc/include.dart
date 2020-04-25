@@ -14,6 +14,8 @@ class Include {
 
   // Properties
   Color appPrimaryColor = Color.fromRGBO(233, 72, 109, 1);
+  Color appGradientPink = Color.fromRGBO(193, 55, 111, 0.9);
+  Color appGradientLightPink = Color.fromRGBO(241, 120, 100, 0.9);
   Color votesStarsColor = Color(0xffcaa05f);
 
   // Methods
