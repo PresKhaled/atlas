@@ -23,6 +23,7 @@ class _MainState extends State<Main> {
         theme: ThemeData(primaryColor: Colors.pink, fontFamily: "Montserrat"),
         home: new Landing(),
         routes: {
+          "/Landing": (BuildContext context) => new Landing(),
           "/Signin": (BuildContext context) => new Signin(),
           "/Signup": (BuildContext context) => new Signup(),
           "/Travel": (BuildContext context) => new Travel(),
