@@ -1,7 +1,10 @@
 // Essential Flutter packages
 import 'package:flutter/material.dart';
 
-//TESTING THE GIT PUSH
+// Internal resources
+import 'include.dart' show Include;
+
+Include _inc = new Include();
 
 //The used item for the drawer
 ListTile sideDrawerItem({Image image, String itemName, Function onPressed}) {
@@ -69,7 +72,7 @@ Drawer sideDrawer() {
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(30.0),
                                 child: Image.asset(
-                                    "assets/images/profile-photo.png")),
+                                    "${_inc.imagesPath}/profile-photo.png")),
                           ),
 
                           //The check merk
@@ -98,7 +101,7 @@ Drawer sideDrawer() {
                               padding: const EdgeInsets.all(6.0),
                               child: Center(
                                   child: Image.asset(
-                                      'assets/images/drawer/check-mark.png')),
+                                      '${_inc.imagesPath}/drawer/check-mark.png')),
                             ),
                           )
                         ],
@@ -198,27 +201,27 @@ Drawer sideDrawer() {
         SizedBox(height: 15),
         // The item
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/discover.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/discover.png'),
             itemName: 'Discover',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/near-me.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/near-me.png'),
             itemName: 'Near me',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/activities.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/activities.png'),
             itemName: 'Activities',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/map.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/map.png'),
             itemName: 'Map',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/bookings.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/bookings.png'),
             itemName: 'Bookings',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/subscription.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/subscription.png'),
             itemName: 'Subscription',
             onPressed: () {}),
         Divider(
@@ -229,11 +232,11 @@ Drawer sideDrawer() {
           color: Colors.grey[300],
         ),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/settings.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/settings.png'),
             itemName: 'Settings',
             onPressed: () {}),
         sideDrawerItem(
-            image: Image.asset('assets/images/drawer/logout.png'),
+            image: Image.asset('${_inc.imagesPath}/drawer/logout.png'),
             itemName: 'Logout',
             onPressed: () {}),
       ],

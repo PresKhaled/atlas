@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 // External resources (packages)
 import 'package:meta/meta.dart';
 
-// Internal resources (packages)
+// Internal resources
 import '../inc/include.dart' show Include;
+import '../inc/drawer.dart' as aside_menu;
 
 class Travel extends StatefulWidget {
   @override
@@ -214,16 +215,16 @@ class _TravelState extends State<Travel> {
 
                                 // Reactions
                                 Expanded(
-                                  child: Column(children: <Widget>[
-                                    Padding(
-                                      padding: EdgeInsets.only(bottom: 12),
-                                      child: Divider(
-                                          height: 3,
-                                          thickness: 3,
-                                          color:
-                                              Color.fromRGBO(204, 204, 204, 1)),
-                                    ),
-                                    Padding(
+                                    child: Column(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 12),
+                                    child: Divider(
+                                        height: 3,
+                                        thickness: 3,
+                                        color:
+                                            Color.fromRGBO(204, 204, 204, 1)),
+                                  ),
+                                  Padding(
                                       padding: EdgeInsets.only(right: 5),
                                       child: Row(
                                           mainAxisAlignment:
@@ -261,10 +262,8 @@ class _TravelState extends State<Travel> {
                                             // Comments count
                                             Text(comments.toString(),
                                                 style: _reactionTextStyle)
-                                          ])
-                                    )
-                                  ])
-                                )
+                                          ]))
+                                ]))
                               ]))
                         ])))));
   }
@@ -272,7 +271,9 @@ class _TravelState extends State<Travel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _inc.propperAppBar(title: "Travelling", travel: true),
+        appBar: _inc.propperAppBar(
+            title: "Travelling", travel: true, context: context),
+        drawer: aside_menu.sideDrawer(),
         body: SingleChildScrollView(
             child: Container(
                 height: _inc.screenSize(context, window).height,
