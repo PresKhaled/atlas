@@ -7,6 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../travel/travel.dart' show Travel;
+import 'package:flutter/services.dart';
 
 Include _include = new Include();
 
@@ -29,8 +30,14 @@ class _SignupState extends State<Signup> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.dark,
+        systemNavigationBarColor: Color.fromRGBO(193, 55, 111, 1),
+        systemNavigationBarIconBrightness: Brightness.light));
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      bottomNavigationBar: null,
       body: Container(
         child: Column(
           children: <Widget>[
@@ -323,6 +330,7 @@ class _SignupState extends State<Signup> {
                       child: _include.buildDivider(),
                     ),
                   ),
+
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
@@ -332,7 +340,7 @@ class _SignupState extends State<Signup> {
                       ),
                       child: RichText(
                         text: TextSpan(
-                            text: 'Already a member? ',
+                            text: 'Already a member?   ',
                             style: TextStyle(
                               fontSize: 16,
                               color: Color.fromRGBO(225, 122, 152, 1.0),
@@ -341,6 +349,10 @@ class _SignupState extends State<Signup> {
                               TextSpan(
                                 text: 'Sign in',
                                 style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor:
+                                        Color.fromRGBO(255, 255, 255, 0.5),
+                                    decorationThickness: 3,
                                     color: Colors.white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
