@@ -10,16 +10,32 @@ class Include {
   Color appPrimaryColor = Color.fromRGBO(233, 72, 109, 1);
   Color appGradientPink = Color.fromRGBO(193, 55, 111, 0.9);
   Color appGradientLightPink = Color.fromRGBO(241, 120, 100, 0.9);
-  String imagesPath = 'assets/images/';
+  String imagesPath = 'assets/images';
   double _appBarButtonsImagesScale = 3.0;
+  bool _newActivity = true;
 
   // Methods
+
+  // Screen size, must use with 'dart:ui' import
   Size screenSize(BuildContext context, Window window) {
     return MediaQuery.of(context).size;
   }
 
+  // Statusbar height
   double statusBar(BuildContext context) {
     return MediaQuery.of(context).padding.top;
+  }
+
+  // Check wether has a new activity or not, to append bell dot
+  _hasActivity() {
+    return _newActivity
+        ? Padding(
+            padding: EdgeInsets.only(top: 7, bottom: 6),
+            child: Image.asset("assets/images/dot.png",
+                scale: _appBarButtonsImagesScale,
+                semanticLabel: "New Activity (Notifcations)"),
+          )
+        : Container();
   }
 
   AppBar propperAppBar({String title, bool travel = false}) {
@@ -70,7 +86,9 @@ class Include {
               onTap: () {},
               child: Container(
                   child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: _newActivity
+                          ? MainAxisAlignment.end
+                          : MainAxisAlignment.center,
                       children: <Widget>[
                     // Bell
                     Image.asset("assets/images/activity.png",
@@ -78,12 +96,7 @@ class Include {
                         semanticLabel: "Activity (Notifcations)"),
 
                     // New activity
-                    Padding(
-                      padding: EdgeInsets.only(top: 7, bottom: 6),
-                      child: Image.asset("assets/images/dot.png",
-                          scale: _appBarButtonsImagesScale,
-                          semanticLabel: "New Activity (Notifcations)"),
-                    )
+                    _hasActivity()
                   ]))),
 
           // Search

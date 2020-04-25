@@ -35,7 +35,7 @@ class _SigninState extends State<Signin> {
                   Container(
                     width: _include.screenSize(context, window).width,
                     height: _include.screenSize(context, window).height,
-                    child: Image.asset("${_include.imagesPath}signin_bg.png",
+                    child: Image.asset("${_include.imagesPath}/signin_bg.png",
                         fit: BoxFit.fill,
                         semanticLabel: "sign in background image"),
                   ),
