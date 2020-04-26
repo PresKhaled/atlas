@@ -164,7 +164,7 @@ class _SigninState extends State<Signin> {
                         left: _include.screenSize(context, window).width / 10,
                         right: _include.screenSize(context, window).width / 10,
                       ),
-                      child: _include.buildDivider(),
+                      child: _include.buildDivider(Colors.grey.withOpacity(0.40)),
                     ),
                   ),
                   Align(
