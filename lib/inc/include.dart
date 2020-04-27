@@ -19,7 +19,8 @@ class Include {
   String imagesPath = 'assets/images';
   double _appBarButtonsImagesScale = 3.0;
   bool _newActivity = true;
-  Color votesStarsColor = Color(0xffcaa05f);
+  // Color votesStarsColor = Color(0xffcaa05f);
+  Color votesStarsColor = Color(0xffE3AB53);
 
   // Methods
 
@@ -133,6 +134,7 @@ class Include {
   Widget votesStarsOutofFive(Color color, double opacity) {
     return Icon(
       Icons.star,
+      size: 20,
       color: color.withOpacity(opacity),
     );
   }
@@ -225,6 +227,8 @@ class Include {
 
   TextStyle totalVotesStyle = TextStyle(
     color: grayColor,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
   );
 
 // End TEXT STYLE ///////////////////////////
