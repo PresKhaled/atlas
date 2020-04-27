@@ -5,8 +5,8 @@ Include _include = new Include();
 List<Widget> cardReviews = [];
 
 //Row of the five stars
-Row fiveStars() {
-  return Row(
+Wrap fiveStars() {
+  return Wrap(
     children: <Widget>[
       _include.votesStarsOutofFive(_include.votesStarsColor, 0.99),
       _include.votesStarsOutofFive(_include.votesStarsColor, 0.99),
@@ -59,27 +59,29 @@ Container reviweItem() {
                         ),
 
                         //User rate (stars) and number of votes
-                        Row(
-                          children: <Widget>[
-                            //The five stars
-                            Container(
-                                margin: EdgeInsets.only(right: 5),
-                                child: fiveStars()),
+                        Container(
+                          child: Wrap(
+                            spacing: 10,
+                            children: <Widget>[
+                              //The five stars
+                              fiveStars(),
 
-                            //Number of user's votes
-                            Expanded(
-                              child: Text(
-                                '(22 Votes)',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.grey[600],
-                                  letterSpacing: 1,
+                              //Number of user's votes
+                              Container(
+                                margin: EdgeInsets.only(right: 20, top: 2),
+                                child: Text(
+                                  '(22 Votes)',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[600],
+                                    letterSpacing: 1,
+                                  ),
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -263,7 +265,7 @@ class _ReviewsState extends State<Reviews> {
                     ),
 
                     //The Rating Stars
-                    fiveStars()
+                    Row(children: <Widget>[fiveStars()])
                   ],
                 ),
               ),
