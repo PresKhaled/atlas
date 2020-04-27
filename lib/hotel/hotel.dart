@@ -71,18 +71,17 @@ class _HotelState extends State<Hotel> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.45,
-                    width: double.infinity,
-                    color: Colors.white,
-                  ),
-                ),
-
               ],
             );
           },
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.45,
+            width: double.infinity,
+            color: Colors.white,
+          ),
         ),
         Positioned(
           left: MediaQuery.of(context).size.width * 0.77,
