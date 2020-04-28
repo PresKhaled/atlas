@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Internal resources
-import '/inc/include.dart' show Include;
+import '../inc/include.dart' show Include;
 
 Include _include = new Include();
 List<Widget> cardReviews = [];
