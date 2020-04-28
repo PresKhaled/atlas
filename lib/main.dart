@@ -7,7 +7,7 @@ import 'account/signin.dart' show Signin;
 import 'account/signup.dart' show Signup;
 import 'travel/travel.dart' show Travel;
 import 'explore/discover.dart' show Discover;
-import 'package:atlas/hotel/reviews.dart' show Reviews;
+import 'hotel/reviews.dart' show Reviews;
 
 void main() => runApp(Main());
 
