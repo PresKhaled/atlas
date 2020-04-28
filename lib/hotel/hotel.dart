@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 
-Include _include = new Include();
+
 
 class Hotel extends StatefulWidget {
   @override
@@ -14,6 +14,7 @@ class Hotel extends StatefulWidget {
 }
 
 class _HotelState extends State<Hotel> {
+  Include _include = new Include();
   List<String> hotelImages;
   ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
   void _addHotelImages() {
