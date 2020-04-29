@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 // Internal resources
 //import '../inc/include.dart' show Include;
 
-class Profile extends StatefulWidget {
+class Messages extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _MessagesState createState() => _MessagesState();
 }
 
-class _ProfileState extends State<Profile> {
+class _MessagesState extends State<Messages> {
   // Instances & Properties
   //Include _inc = new Include();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Container(child: Column(children: <Widget>[
-
+      
     ])));
   }
 }

@@ -50,12 +50,14 @@ class _HotelState extends State<Hotel> {
   @override
   Widget build(BuildContext context) {
     _addHotelImages();
-
     return Stack(
       children: <Widget>[
         PageView.builder(
           scrollDirection: Axis.horizontal,
-          pageSnapping: true,
+          itemCount: hotelImages.length,
+          onPageChanged: (index) {
+              _pageViewNotifier.value = index;
+          },
           itemBuilder: (context, index) {
             return Stack(
               children: <Widget>[
@@ -73,13 +75,33 @@ class _HotelState extends State<Hotel> {
               ],
             );
           },
-          itemCount: hotelImages.length,
-          onPageChanged: (index) {
-            setState(() {
-              _pageViewNotifier.value = index;
-            });
-          },
         ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.45,
+            width: double.infinity,
+            color: Colors.white,
+          ),
+        ),
+        Positioned(
+          left: MediaQuery.of(context).size.width * 0.77,
+          bottom: MediaQuery.of(context).size.height * 0.42,
+            child: SizedBox(
+              height: 60,
+              width: 60,
+              child: Material(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30) ,
+                ),
+                elevation: 5,
+                child: IconButton(
+                  onPressed: (){},
+                  icon: Icon(Icons.bookmark_border, color: Colors.pink,),
+                ),
+              ),
+            ),
+          ),
         Padding(
           padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).size.height * 0.45),
@@ -89,14 +111,6 @@ class _HotelState extends State<Hotel> {
               alignment: Alignment.center,
               child: _displayPageIndicators(hotelImages.length),
             ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.45,
-            width: double.infinity,
-            color: Colors.white,
           ),
         ),
         Padding(
@@ -129,18 +143,6 @@ class _HotelState extends State<Hotel> {
                 ),
               ],
             ),
-            floatingActionButton: Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height * 0.36),
-              child: FloatingActionButton(
-                  onPressed: () {},
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.bookmark_border,
-                    color: Colors.pink,
-                  )),
-            ),
-            floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             body: SafeArea(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -154,9 +156,7 @@ class _HotelState extends State<Hotel> {
                         'Mt. Catlin Hotel',
                         style: _include.hotelNameStyle,
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
+                      SizedBox(height: 3,),
                       Row(
                         children: <Widget>[
                           Text(
@@ -164,7 +164,7 @@ class _HotelState extends State<Hotel> {
                             style: _include.priceAndCityNameStyle,
                           ),
                           SizedBox(
-                            width: 20,
+                            width: 15,
                           ),
                           Text(
                             'New York',
@@ -172,31 +172,21 @@ class _HotelState extends State<Hotel> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      _include.buildDivider(
-                        Color(0xffd5d5d5).withOpacity(0.40),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
+                      SizedBox(height: 15),
+                      _include.buildDivider(Color(0xffd5d5d5).withOpacity(0.40)),
+                      SizedBox(height: 10),
                       Text(
                         'ABOUT MT. CATLIN',
                         style: _include.aboutHotelStyle,
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
+                      SizedBox(height: 3),
                       Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit,'
                         ' sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
                         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut',
                         style: _include.aboutHotelContentStyle,
                       ),
-                      SizedBox(
-                        height: 25,
-                      ),
+                      SizedBox(height: 18),
                       Row(
                         children: <Widget>[
                           ImageIcon(
@@ -204,9 +194,7 @@ class _HotelState extends State<Hotel> {
                             color: Color(0xffd5d5d5),
                             size: 45,
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Column(
                             children: <Widget>[
                               Text(
@@ -219,13 +207,9 @@ class _HotelState extends State<Hotel> {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Text('|', style: _include.linearSeparatorStyle),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Column(
                             children: <Widget>[
                               Row(
@@ -234,9 +218,7 @@ class _HotelState extends State<Hotel> {
                                     '8.4',
                                     style: _include.hotelVotesRateStyle,
                                   ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
+                                  SizedBox(width: 5),
                                   Text(
                                     '+6k Votes',
                                     style: _include.totalVotesStyle,
