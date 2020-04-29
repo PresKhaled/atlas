@@ -9,6 +9,8 @@ class Discover extends StatefulWidget {
 class _DiscoverState extends State<Discover> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(child: Column(children: <Widget>[])));
+    return Scaffold(body: Container(child: Column(children: <Widget>[
+      
+    ])));
   }
 }

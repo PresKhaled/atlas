@@ -6,6 +6,7 @@ import 'landing.dart' show Landing;
 import 'account/signin.dart' show Signin;
 import 'account/signup.dart' show Signup;
 import 'travel/travel.dart' show Travel;
+import 'travel/travel_section.dart' show TravelSection;
 import 'explore/discover.dart' show Discover;
 import 'hotel/reviews.dart' show Reviews;
 
@@ -28,6 +29,7 @@ class _MainState extends State<Main> {
           "/Signin": (BuildContext context) => new Signin(),
           "/Signup": (BuildContext context) => new Signup(),
           "/Travel": (BuildContext context) => new Travel(),
+          "/TravelSection": (BuildContext context) => new TravelSection(),
           "/Discover": (BuildContext context) => new Discover(),
           "/Reviews": (BuildContext context) => new Reviews()
         });

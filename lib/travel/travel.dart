@@ -10,6 +10,7 @@ import 'package:meta/meta.dart';
 // Internal resources
 import '../inc/include.dart' show Include;
 import '../inc/drawer.dart' as aside_menu;
+import 'travel_section.dart' show TravelSection;
 
 class Travel extends StatefulWidget {
   @override
@@ -272,7 +273,14 @@ class _TravelState extends State<Travel> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _inc.propperAppBar(
-            title: "Travelling", travel: true, context: context),
+            context: context,
+            title: "Travelling",
+            titleColor: Colors.white,
+            gradient: LinearGradient(
+                colors: [_inc.appGradientPink, _inc.appGradientLightPink],
+                stops: [0, 0],
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight)),
         drawer: aside_menu.sideDrawer(),
         body: SingleChildScrollView(
             child: Container(
@@ -375,7 +383,15 @@ class _TravelState extends State<Travel> {
 
                                   // Travel section Navigate
                                   RaisedButton(
-                                      onPressed: () {}, child: Text("See all"))
+                                      onPressed: () =>
+                                          Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          TravelSection()),
+                                              ModalRoute.withName("/")),
+                                      child: Text("See all"))
                                 ]),
                             // Place cards
                             Container(
