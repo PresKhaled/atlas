@@ -5,8 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../travel/travel.dart' show Travel;
-
 Include _include = new Include();
 
 class Signin extends StatefulWidget {
@@ -35,10 +33,9 @@ class _SigninState extends State<Signin> {
                   Container(
                     width: _include.screenSize(context, window).width,
                     height: _include.screenSize(context, window).height,
-                    child: Image.asset("${_include.imagesPath}/signin_bg.png",
+                    child: Image.asset("${_include.imagesPath}signin_bg.png",
                         fit: BoxFit.fill,
-                        semanticLabel: "sign in background image"),
-                  ),
+                        semanticLabel: "sign in background image"),),
 
                   Padding(
                     padding: EdgeInsets.only(
@@ -63,7 +60,7 @@ class _SigninState extends State<Signin> {
                     child: Container(
                       width: double.infinity,
                       height:
-                          _include.screenSize(context, window).height * 0.50,
+                      _include.screenSize(context, window).height * 0.50,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: _include.addShadowToWidget,
@@ -74,15 +71,15 @@ class _SigninState extends State<Signin> {
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: _include
-                                        .screenSize(context, window)
-                                        .height *
+                                    .screenSize(context, window)
+                                    .height *
                                     0.05,
                                 left:
-                                    _include.screenSize(context, window).width *
-                                        0.10,
+                                _include.screenSize(context, window).width *
+                                    0.10,
                                 right:
-                                    _include.screenSize(context, window).width *
-                                        0.10,
+                                _include.screenSize(context, window).width *
+                                    0.10,
                               ),
                               child: Column(
                                 children: <Widget>[
@@ -95,7 +92,7 @@ class _SigninState extends State<Signin> {
                                   ),
                                   SizedBox(
                                     height:
-                                        MediaQuery.of(context).size.height / 30,
+                                    MediaQuery.of(context).size.height / 30,
                                   ),
                                   TextField(
                                     decoration: InputDecoration(
@@ -104,7 +101,7 @@ class _SigninState extends State<Signin> {
                                   ),
                                   SizedBox(
                                     height:
-                                        MediaQuery.of(context).size.height / 50,
+                                    MediaQuery.of(context).size.height / 50,
                                   ),
                                   TextField(
                                     decoration: InputDecoration(
@@ -113,7 +110,7 @@ class _SigninState extends State<Signin> {
                                   ),
                                   SizedBox(
                                     height:
-                                        MediaQuery.of(context).size.height / 25,
+                                    MediaQuery.of(context).size.height / 25,
                                   ),
                                 ],
                               ),
@@ -126,12 +123,7 @@ class _SigninState extends State<Signin> {
                             width: double.infinity,
                             margin: EdgeInsets.fromLTRB(25, .0, 25, 15),
                             child: RaisedButton(
-                              onPressed: () => Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          new Travel()),
-                                  ModalRoute.withName("/Travel")),
+                              onPressed: () => Navigator.pushNamed(context, "/Signup"),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(80.0),
                               ),
@@ -148,7 +140,7 @@ class _SigninState extends State<Signin> {
                                   ),
                                   alignment: Alignment.center,
                                   child: Text(
-                                    'Sign in',
+                                    'Login',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -168,11 +160,11 @@ class _SigninState extends State<Signin> {
                     child: Padding(
                       padding: EdgeInsets.only(
                         bottom:
-                            _include.screenSize(context, window).height / 12,
+                        _include.screenSize(context, window).height / 12,
                         left: _include.screenSize(context, window).width / 10,
                         right: _include.screenSize(context, window).width / 10,
                       ),
-                      child: _include.buildDivider(Colors.grey.withOpacity(0.40)),
+                      child: _include.buildDivider(),
                     ),
                   ),
                   Align(
@@ -180,7 +172,7 @@ class _SigninState extends State<Signin> {
                     child: Padding(
                       padding: EdgeInsets.only(
                         bottom:
-                            _include.screenSize(context, window).height / 20,
+                        _include.screenSize(context, window).height / 20,
                       ),
                       child: RichText(
                         text: TextSpan(
