@@ -52,29 +52,31 @@ class _HotelState extends State<Hotel> {
     _addHotelImages();
     return Stack(
       children: <Widget>[
-        PageView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: hotelImages.length,
-          onPageChanged: (index) {
-              _pageViewNotifier.value = index;
-          },
-          itemBuilder: (context, index) {
-            return Stack(
-              children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.70,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage(
-                        hotelImages[index],
+        Container(
+          child: PageView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: hotelImages.length,
+            onPageChanged: (index) {
+                _pageViewNotifier.value = index;
+            },
+            itemBuilder: (context, index) {
+              return Stack(
+                children: <Widget>[
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.70,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage(
+                          hotelImages[index],
+                        ),
+                        fit: BoxFit.cover,
                       ),
-                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-              ],
-            );
-          },
+                ],
+              );
+            },
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -109,7 +111,7 @@ class _HotelState extends State<Hotel> {
             offset: Offset(0, 175),
             child: Align(
               alignment: Alignment.center,
-              child: _displayPageIndicators(hotelImages.length),
+              child: displayPageIndicators( hotelImages.length) ,
             ),
           ),
         ),
@@ -249,10 +251,11 @@ class _HotelState extends State<Hotel> {
     );
   }
 
-  Widget _displayPageIndicators(int length) {
+  Widget displayPageIndicators(int length) {
+    ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
     return Container(
-      width: MediaQuery.of(context).size.width * 0.35,
-      height: MediaQuery.of(context).size.width * 0.05,
+      width: MediaQuery.of(context).size.width * 0.40,
+      height: MediaQuery.of(context).size.width * 0.07,
       decoration: BoxDecoration(
           color: Colors.black54.withOpacity(0.30),
           borderRadius: BorderRadius.circular(30.0)),
@@ -262,7 +265,7 @@ class _HotelState extends State<Hotel> {
         length: length,
         normalBuilder: (animationController, index) => Circle(
           size: 9.0,
-          color: Colors.grey,
+          color: Colors.grey.withOpacity(0.50),
         ),
         highlightedBuilder: (animationController, index) => ScaleTransition(
           scale: CurvedAnimation(
@@ -277,4 +280,5 @@ class _HotelState extends State<Hotel> {
       ),
     );
   }
+
 }

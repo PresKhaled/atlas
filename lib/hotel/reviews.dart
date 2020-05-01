@@ -1,8 +1,9 @@
 // Essential Flutter packages
+import 'package:atlas/inc/include.dart';
 import 'package:flutter/material.dart';
 
 // Internal resources
-import '/inc/include.dart' show Include;
+
 
 Include _include = new Include();
 List<Widget> cardReviews = [];

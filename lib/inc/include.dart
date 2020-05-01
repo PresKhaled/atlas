@@ -2,10 +2,12 @@
 import 'dart:ui';
 
 // Essential Flutter packages
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // External resources (packages)
 import 'package:meta/meta.dart';
+import 'package:page_view_indicator/page_view_indicator.dart';
 
 // Internal resources
 //import 'drawer.dart' as aside_menu;
@@ -16,11 +18,15 @@ class Include {
   Color appPrimaryColor = Color.fromRGBO(233, 72, 109, 1);
   Color appGradientPink = Color.fromRGBO(193, 55, 111, 0.9);
   Color appGradientLightPink = Color.fromRGBO(241, 120, 100, 0.9);
-  String imagesPath = 'assets/images';
-  double _appBarButtonsImagesScale = 3.0;
-  bool _newActivity = true;
+  String imagesPath = 'assets/images/';
+  double appBarButtonsImagesScale = 3.0;
+  bool newActivity = true;
   // Color votesStarsColor = Color(0xffcaa05f);
   Color votesStarsColor = Color(0xffE3AB53);
+
+
+
+
 
   // Methods
 
@@ -35,13 +41,18 @@ class Include {
   }
 
   // Check wether has a new activity or not, to append bell dot
-  _hasActivity() {
-    return _newActivity
+  hasActivity(Color color) {
+    return newActivity
         ? Padding(
             padding: EdgeInsets.only(top: 7, bottom: 6),
-            child: Image.asset("assets/images/dot.png",
-                scale: _appBarButtonsImagesScale,
-                semanticLabel: "New Activity (Notifcations)"),
+//            child: Image.asset("assets/images/dot.png",
+//                scale: appBarButtonsImagesScale,
+//                semanticLabel: "New Activity (Notifcations)"),
+    child: Container(
+      height: 5,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle ,
+         border: Border.all(width: 3.0, color: color))),
           )
         : Container();
   }
@@ -81,7 +92,7 @@ class Include {
           child: GestureDetector(
             onTap: () => Scaffold.of(context).openDrawer(),
             child: Image.asset("assets/images/sidelist.png",
-                scale: _appBarButtonsImagesScale, semanticLabel: "Aside menu"),
+                scale: appBarButtonsImagesScale, semanticLabel: "Aside menu"),
           ),
         ),
 
@@ -99,17 +110,18 @@ class Include {
               onTap: () {},
               child: Container(
                   child: Column(
-                      mainAxisAlignment: _newActivity
+                      mainAxisAlignment: newActivity
                           ? MainAxisAlignment.end
                           : MainAxisAlignment.center,
                       children: <Widget>[
                     // Bell
                     Image.asset("assets/images/activity.png",
-                        scale: _appBarButtonsImagesScale,
+                        scale: appBarButtonsImagesScale,
                         semanticLabel: "Activity (Notifcations)"),
 
                     // New activity
-                    _hasActivity()
+                        //TODO:: change color
+                    hasActivity(Color(0xffd64680))
                   ]))),
 
           // Search
@@ -118,7 +130,7 @@ class Include {
             child: GestureDetector(
                 onTap: () {},
                 child: Image.asset("assets/images/search.png",
-                    scale: _appBarButtonsImagesScale, semanticLabel: "Search")),
+                    scale: appBarButtonsImagesScale, semanticLabel: "Search")),
           )
         ]);
   }
@@ -232,4 +244,9 @@ class Include {
   );
 
 // End TEXT STYLE ///////////////////////////
+
+
+// Discover Methods
+
 }
+
