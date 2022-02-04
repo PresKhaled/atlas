@@ -4,4 +4,4 @@
 
 Download PSD: [Atlas PSD - MEGA](https://mega.nz/file/AwlWjCbI#yz55-MP5pyC5ia_beMO-jWvTCGkaLvzXJeWAlvoxsB4)
 
-![Atlas UIs](http://www.mediafire.com/convkey/f01b/fz304tovf500dknbg.jpg)
+[Finished parts](https://github.com/PresKhaled/atlas/issues?q=is%3Aissue+is%3Aclosed)
